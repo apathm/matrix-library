@@ -7,12 +7,14 @@
 using namespace std;
 
 class Matrix{
-	vector<double> matrix;
 	int rows;
 	int columns;
+	double *m;
 
 	public:
-	Matrix(const vector<double>& matrix);
+	Matrix(int rows, int columns);
+	~Matrix();
+	void randomize();
 	void transpose();
 	void multiply(const Matrix& m2);
 	void multiply(int scalar);
