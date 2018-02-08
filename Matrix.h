@@ -14,7 +14,8 @@ class Matrix{
 	public:
 	Matrix(int rows = 1, int columns = 1);
 	~Matrix();
-	double at(int row, int column) const;
+	double& at(int row, int column);
+	const double& at(int row, int column) const;
 	void print() const;
 	size_t size() const;
 	void randomize();
