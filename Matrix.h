@@ -16,6 +16,7 @@ class Matrix{
 	~Matrix();
 	double at(int row, int column);
 	void print() const;
+	size_t size() const;
 	void randomize();
 	void transpose();
 	void multiply(const Matrix& m2);
