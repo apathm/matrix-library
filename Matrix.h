@@ -12,8 +12,10 @@ class Matrix{
 	double *m;
 
 	public:
-	Matrix(int rows, int columns);
+	Matrix(int rows = 0, int columns = 0);
 	~Matrix();
+	double at(int row, int column);
+	void print() const;
 	void randomize();
 	void transpose();
 	void multiply(const Matrix& m2);
