@@ -13,4 +13,8 @@ int main(){
 	cout << "Matrix printen\n";
 	m1.print();
 
+	cout << "_____________\n";
+
+	int j{m1.at(2,1)};
+	cout << j;
 }
