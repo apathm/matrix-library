@@ -17,7 +17,24 @@ Matrix::Matrix(int rows, int columns): rows{rows}, columns{columns}{
 Matrix::~Matrix(){ delete[] m; };
 
 
-double Matrix::at(int row, int column) const{
+double& Matrix::at(int row, int column){
+	cout << "at 1\n";
+
+	if(row <= 0 || this->rows < row)
+		throw runtime_error("Matrix::at: variable row is out of range.");
+
+	if(column <= 0 || this->columns < column)
+		throw runtime_error("Matrix::at: variable column is out of range.");
+
+	int index{(row-1)*columns + (column-1)};
+	if(index < 0 || index > this->size()-1)
+		throw runtime_error("Matrix::at: out of range.");
+
+	return m[(row-1)*columns + (column-1)];
+}
+
+const double& Matrix::at(int row, int column) const{
+	cout << "at 2\n";
 	if(row <= 0 || this->rows < row)
 		throw runtime_error("Matrix::at: variable row is out of range.");
 
@@ -34,6 +51,8 @@ double Matrix::at(int row, int column) const{
 size_t Matrix::size() const{
 	return rows*columns;
 }
+
+
 
 void Matrix::print() const{
 	for(int i{1}; i <= rows; ++i){
