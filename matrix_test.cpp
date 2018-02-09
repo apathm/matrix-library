@@ -16,10 +16,10 @@ int main(){
 	cout << "_____________\n\n";
 
 	vector<double> m{2,1,3,};
-	Matrix m2 {4,6};
-
-	Matrix m3 {{1,2,3,4}};
+	Matrix m2 {1,3, m};
 
 	cout << m2;
-
+	cout << "_______________\n";
+	m2.multiply(2);
+	cout << m2;
 }
