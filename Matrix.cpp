@@ -22,6 +22,30 @@ Matrix::Matrix(int rows, int columns, const vector<double>& v): rows{rows}, colu
 
 Matrix::~Matrix(){ delete[] m; };
 
+Matrix::Matrix(const Matrix& original){
+	rows = original.rows;
+	columns = original.columns;
+
+	m = new double[rows*columns];
+	for(int i{0}; i < rows; ++i)
+		for(int j{0}; j < columns; ++j)
+			m[i*columns + j] = original.m[i*columns+j];
+}
+
+Matrix& Matrix::operator=(const Matrix& original){
+	double *mbuf = new double[original.rows * original.columns];
+	for(int i{0}; i < rows; ++i)
+		for(int j{0}; j < columns; ++j)
+			mbuf[i*columns + j] = original.m[i*columns+j];
+
+	if(m) delete[] m;
+	m = mbuf;
+	rows = original.rows;
+	columns = original.columns;
+	return *this;
+}
+
+
 double& Matrix::at(int row, int column){
 	if(row <= 0 || this->rows < row)
 		throw runtime_error("Matrix::at: variable row is out of range.");

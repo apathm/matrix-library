@@ -14,6 +14,8 @@ class Matrix{
 	public:
 	Matrix(int rows, int columns, const vector<double>& v = {});
 	~Matrix();
+	Matrix(const Matrix& original);
+	Matrix& operator=(const Matrix& original);
 	double& at(int row, int column);
 	const double& at(int row, int column) const;
 	void set_values(const vector<double>& v);
@@ -23,6 +25,7 @@ class Matrix{
 	void transpose();
 	void multiply(const Matrix& m2);
 	void multiply(int scalar);
+	
 };
 
 ostream& operator<<(ostream& o, const Matrix& m);
