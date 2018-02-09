@@ -11,14 +11,13 @@ Matrix::Matrix(int rows, int columns): rows{rows}, columns{columns}{
 
 	for(int i{0}; i < rows; ++i)
 		for(int j{0}; j < columns; ++j)
-			m[i * j] = 0;
+			m[i*columns + j] = 0;
 }
 
 Matrix::~Matrix(){ delete[] m; };
 
 
 double& Matrix::at(int row, int column){
-	cout << "at 1\n";
 
 	if(row <= 0 || this->rows < row)
 		throw runtime_error("Matrix::at: variable row is out of range.");
@@ -34,7 +33,6 @@ double& Matrix::at(int row, int column){
 }
 
 const double& Matrix::at(int row, int column) const{
-	cout << "at 2\n";
 	if(row <= 0 || this->rows < row)
 		throw runtime_error("Matrix::at: variable row is out of range.");
 
@@ -54,20 +52,26 @@ size_t Matrix::size() const{
 
 
 
-void Matrix::print() const{
+ostream& Matrix::print(ostream& o) const{
 	for(int i{1}; i <= rows; ++i){
-		cout << "|";
+		o << "|";
 
 		bool first{true};
 		for(int j{1}; j <= columns; ++j){
 			if(first){
-				cout << this->at(i, j);
+				o << this->at(i, j);
 				first = false;
 			}
 			else
-				cout << " " << this->at(i, j);
+				o << " " << this->at(i, j);
 		}
 
-		cout << "|\n";
+		o << "|\n";
 	}
+
+	return o;
+}
+
+ostream& operator<<(ostream& o, const Matrix& m){
+	return m.print(o);
 }

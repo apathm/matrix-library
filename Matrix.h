@@ -16,12 +16,14 @@ class Matrix{
 	~Matrix();
 	double& at(int row, int column);
 	const double& at(int row, int column) const;
-	void print() const;
+	ostream& print(ostream& o) const;
 	size_t size() const;
 	void randomize();
 	void transpose();
 	void multiply(const Matrix& m2);
 	void multiply(int scalar);
 };
+
+ostream& operator<<(ostream& o, const Matrix& m);
 
 #endif

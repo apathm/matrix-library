@@ -11,10 +11,10 @@ int main(){
 	Matrix m1 {2,2};
 
 	cout << "Matrix printen\n";
-	m1.print();
+	cout << m1;
 
 	cout << "_____________\n";
 
-	int j{m1.at(2,1)};
+	double j{m1.at(2,1)};
 	cout << j;
 }
