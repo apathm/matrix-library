@@ -12,10 +12,11 @@ class Matrix{
 	double *m;
 
 	public:
-	Matrix(int rows = 1, int columns = 1);
+	Matrix(int rows, int columns, const vector<double>& v = {});
 	~Matrix();
 	double& at(int row, int column);
 	const double& at(int row, int column) const;
+	void set_values(const vector<double>& v);
 	ostream& print(ostream& o) const;
 	size_t size() const;
 	void randomize();
