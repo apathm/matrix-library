@@ -8,13 +8,18 @@ using namespace std;
 
 int main(){
 	cout << "Matrix mit 2 rows 2 columns wird initialisiert.\n";
-	Matrix m1 {2,2};
+	Matrix m1 {2,2, {1,2,3,4}};
 
 	cout << "Matrix printen\n";
 	cout << m1;
 
-	cout << "_____________\n";
+	cout << "_____________\n\n";
 
-	double j{m1.at(2,1)};
-	cout << j;
+	vector<double> m{2,1,3,};
+	Matrix m2 {4,6};
+
+	Matrix m3 {{1,2,3,4}};
+
+	cout << m2;
+
 }
