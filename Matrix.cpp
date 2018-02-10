@@ -95,10 +95,12 @@ void Matrix::set_values(const vector<double>& v){
 }
 
 
-void Matrix::multiply(int scalar){
+Matrix& Matrix::multiply(int scalar){
 	for(size_t i{1}; i <= rows; ++i)
 		for(size_t j{1}; j <= columns; ++j)
 			this->at(i,j) *= scalar;
+
+	return *this;
 }
 
 

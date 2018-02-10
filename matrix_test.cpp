@@ -15,8 +15,7 @@ int main(){
 	cout << m2 << "\n";
 	
 
-	cout << "Nach zuweisung\n";
-	m2 = m1;
+	m2 = m1.multiply(2);
 
 	cout << m2 << "\n";
 }

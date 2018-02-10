@@ -23,8 +23,8 @@ class Matrix{
 	size_t size() const;
 	void randomize();
 	void transpose();
-	void multiply(const Matrix& m2);
-	void multiply(int scalar);
+	Matrix& multiply(const Matrix& m2);
+	Matrix& multiply(int scalar);
 	
 };
 
