@@ -9,14 +9,10 @@ using namespace std;
 int main(){
 	Matrix m1{2,2,{1,2,3,4}};
 
-	Matrix m2{4,4};
+	Matrix m2{2, 3, {1,2,3,4,5,6}};
 
-	cout << m1 << "\n";
+
+	m2.transpose();
 	cout << m2 << "\n";
-
-	Matrix m3 {1,2};
-
-	
-
-	cout << m3 << "\n";
+	cout << m1.transpose() << "\n";
 }
