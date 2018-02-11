@@ -105,6 +105,19 @@ Matrix& Matrix::multiply(int scalar){
 	return *this;
 }
 
+Matrix& Matrix::transpose(){
+	vector<double> temp;
+
+	for(int i{1}; i <= columns; ++i)
+		for(int j{1}; j <= rows; ++j)
+			temp.push_back(this->at(j, i));
+	
+	Matrix m {this->columns, this->rows, temp};
+	*this = m;
+
+	return *this;
+}
+
 
 ostream& Matrix::print(ostream& o) const{
 	for(int i{1}; i <= rows; ++i){
