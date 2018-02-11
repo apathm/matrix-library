@@ -13,9 +13,10 @@ int main(){
 
 	cout << m1 << "\n";
 	cout << m2 << "\n";
+
+	Matrix m3 {1,2};
+
 	
 
-	m2 = m1.multiply(2);
-
-	cout << m2 << "\n";
+	cout << m3 << "\n";
 }
