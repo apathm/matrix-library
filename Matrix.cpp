@@ -34,9 +34,9 @@ Matrix::Matrix(const Matrix& original){
 
 Matrix& Matrix::operator=(const Matrix& original){
 	double *mbuf = new double[original.rows * original.columns];
-	for(int i{0}; i < rows; ++i)
-		for(int j{0}; j < columns; ++j)
-			mbuf[i*columns + j] = original.m[i*columns+j];
+	for(int i{0}; i < original.rows; ++i)
+		for(int j{0}; j < original.columns; ++j)
+			mbuf[i*original.columns + j] = original.m[i*original.columns+j];
 
 	if(m) delete[] m;
 	m = mbuf;
@@ -78,7 +78,7 @@ size_t Matrix::size() const{
 	return rows*columns;
 }
 
-void Matrix::set_values(const vector<double>& v){
+Matrix Matrix::set_values(const vector<double>& v){
 	if(v.size() > this->size())
 		throw runtime_error("Matrix::set_values: too many values provided.");
 
@@ -92,6 +92,8 @@ void Matrix::set_values(const vector<double>& v){
 	for(size_t i{1}; i <= rows; ++i)
 		for(size_t j{1}; j <= columns; ++j)
 			this->at(i,j) = temp.at((i-1)*columns + (j-1));	
+
+	return *this;
 }
 
 
