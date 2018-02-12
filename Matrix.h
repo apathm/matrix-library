@@ -22,7 +22,7 @@ class Matrix{
 	ostream& print(ostream& o) const;
 	size_t size() const;
 	Matrix& transpose();
-	Matrix& multiply(const Matrix& m2);
+	Matrix& multiply(const Matrix& m);
 	Matrix& multiply(int scalar);
 };
 
