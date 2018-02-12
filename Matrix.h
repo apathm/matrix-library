@@ -12,7 +12,7 @@ class Matrix{
 	double *m;
 
 	public:
-	Matrix(int rows, int columns, const vector<double>& v = {});
+	Matrix(int rows = 0, int columns = 0, const vector<double>& v = {});
 	~Matrix();
 	Matrix(const Matrix& original);
 	Matrix& operator=(const Matrix& original);

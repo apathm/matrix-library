@@ -7,9 +7,9 @@
 
 Matrix::Matrix(int rows, int columns, const vector<double>& v): rows{rows}, columns{columns}{
 	if(rows == 0 || columns == 0)
-		throw runtime_error("Matrix::Matrix: cannot have 0 as argument.");
-
-	m = new double[rows*columns];
+		m = nullptr;
+	else
+		m = new double[rows*columns];
 
 	if(v.size() > 0)
 		this->set_values(v); 
