@@ -105,6 +105,29 @@ Matrix& Matrix::multiply(int scalar){
 	return *this;
 }
 
+Matrix& Matrix::multiply(const Matrix& m){
+	if(this->columns != m.rows)
+		throw runtime_error("Matrix::multiply: number of columns of this->matrix does not match number of rows of Matrix m.");
+
+	vector<double> temp;
+
+	for(int i{1}; i <= this->rows; ++i){
+		for(int j{1}; j <= m.columns; ++j){
+			double sum{0};
+
+			for(int k{1}; k <= m.rows; ++k)
+				sum += this->at(i, k) * m.at(k, j);
+
+			temp.push_back(sum);
+		}
+	}
+
+	Matrix temp_m {this->rows, m.columns, temp};
+
+	*this = temp_m;
+	return *this;
+}
+
 Matrix& Matrix::transpose(){
 	vector<double> temp;
 
