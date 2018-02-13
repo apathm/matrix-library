@@ -128,6 +128,41 @@ Matrix& Matrix::multiply(const Matrix& m){
 	return *this;
 }
 
+Matrix& Matrix::add(const Matrix& m){
+	if(this->rows != m.rows || this->columns != m.columns)
+		throw runtime_error("Matrix::add: Matrices do not have same dimensions");
+
+	for(int i{1}; i <= rows; ++i)
+		for(int j{1}; j <= columns; ++j)
+			this->at(i, j) += m.at(i,j);
+
+	return *this;
+}
+
+Matrix& Matrix::substract(const Matrix& m){
+	if(this->rows != m.rows || this->columns != m.columns)
+		throw runtime_error("Matrix::add: Matrices do not have same dimensions");
+
+	for(int i{1}; i <= rows; ++i)
+		for(int j{1}; j <= columns; ++j)
+			this->at(i, j) -= m.at(i,j);
+
+	return *this;
+}
+
+Matrix& Matrix::operator+(const Matrix& m){
+	return this->add(m);
+}
+Matrix& Matrix::operator-(const Matrix& m){
+	return this->substract(m);
+}
+Matrix& Matrix::operator*(int scalar){
+	return this->multiply(scalar);
+}
+Matrix& Matrix::operator*(const Matrix& m){
+	return this->multiply(m);
+}
+
 Matrix& Matrix::transpose(){
 	vector<double> temp;
 

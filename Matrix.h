@@ -24,6 +24,12 @@ class Matrix{
 	Matrix& transpose();
 	Matrix& multiply(const Matrix& m);
 	Matrix& multiply(int scalar);
+	Matrix& add(const Matrix& m);
+	Matrix& substract(const Matrix& m);
+	Matrix& operator+(const Matrix& m);
+	Matrix& operator-(const Matrix& m);
+	Matrix& operator*(int scalar);
+	Matrix& operator*(const Matrix& m);
 };
 
 ostream& operator<<(ostream& o, const Matrix& m);
